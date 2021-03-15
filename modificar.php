@@ -1,12 +1,13 @@
 <?php
-include("fragmentos/header.php");
 include("clases/conexionOpen.php");
+include("fragmentos/header.php");
+
 ?>
 
 <div class="row">
     <div class="col-4 col-md-5"></div>
     <div class="col-4 col-md-2">
-    <form action="modificar.php" method="post">
+    <form action="insertar.php" method="post">
         <label for="marca">Marca</label>
         <input type="text" name="marca" id="marca" class="form-control">
         <label for="calidad">Calidad</label>
@@ -20,8 +21,9 @@ include("clases/conexionOpen.php");
         $_marca = $_POST['marca'];
         $_calidad = $_POST['calidad'];
         $_precio = $_POST['precio'];
-        $query = "UPDATE portatil SET marca_por = '$_marca', calidad_por = '$_calidad' valor_por = '$_precio' WHERE id_por = '$_id'";
+        $query = "UPDATE portatil SET marca_por = '$_marca', calidad_por = '$_calidad' precio_por = '$_precio' WHERE id_por = '$_id'";
         $registro = mysqli_query($conexion, $query);
+
     ?>
 
     </div>

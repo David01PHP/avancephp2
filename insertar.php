@@ -5,7 +5,7 @@ include("clases/conexionOpen.php");
 <div class="row">
     <div class="col-3 col-md-3"></div>
     <div class="col-3 col-md-3">
-        <form action="index.php" method="post">
+        <form action="insertar.php" method="post">
             <label for="marca"> marca:</label>
             <input type="text" name="marca" id="marca" class="form-control" placeholder="Marca">
             <label for="calidad"> calidad:</label>
@@ -57,39 +57,7 @@ include("clases/conexionOpen.php");
             </tbody>
         </table>
     </div>
-    <div class="col-3 col-md-3">
-    <form action ="index.php" method="post">
-<label for="id" class="form-label">ID </label>
-<input  type="text" name="id" id="id" class="form-control">
-<input  type="submit" value="buscar" name="btnbuscar" class="btn btn-primary">
-</form>
-<?php
-if (isset($_POST['btnbuscar'])){
-    $_id = $_POST['id'];
-include("./clases/conexionOpen.php");
-    $resultado = mysqli_query($conexion, "SELECT * FROM $tb1 WHERE id = $_id");
-    while ($consulta = mysqli_fetch_array($resultado)){
-       echo "
-       <table class=\"table\">
-       <tr>
-       <td><center><b>id</b></center></td>
-       <td><center><b>marca</b></center></td>
-       <td><center><b>calidad</b></center></td>
-       <td><center><b>valor</b></center></td>
-      
-      
-       </tr>
-    <td><center>".$consulta['id_por']."</center></td>
-    <td><center>".$consulta['marca_por']."</center></td>
-    <td><center>".$consulta['calidad_por']."</center></td>
-    <td><center>".$consulta['valor_por']."</center></td>
-   
-</table>
-       ";
-    }
-   include("./clases/conexionClose.php");
-}
-?></div>
+    <div class="col-3 col-md-3"></div>
 </div>
 <?php
 include("./fragmentos/footer.php");
